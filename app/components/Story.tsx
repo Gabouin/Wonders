@@ -74,7 +74,7 @@ export function Story() {
 
   return (
     <div ref={containerRef} className="relative w-full h-[700vh]">
-      <div className="sticky top-0 w-full min-h-screen bg-white overflow-hidden">
+      <div className="sticky top-0 w-full min-h-[100svh] bg-white overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ backgroundImage: "url('/bg-effect-2.png')" }}

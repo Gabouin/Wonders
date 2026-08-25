@@ -51,7 +51,7 @@ export function HowThisWorks() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-white overflow-hidden">
+    <div className="relative w-full min-h-[100svh] bg-white overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: "url('/bg-effect-2.png')" }}
@@ -61,12 +61,12 @@ export function HowThisWorks() {
         style={{ backgroundImage: "url('/bg-part-4.png')" }}
       /> */}
 
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen">
-        <div className="pt-20">
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-[100svh] py-12">
+        <div className="pt-8 md:pt-20 px-6">
           <img
             src="/how-this-works.png"
             alt="How this works!"
-            className="h-auto w-150 object-contain"
+            className="h-auto w-full max-w-150 object-contain"
           />
         </div>
 
@@ -81,7 +81,7 @@ export function HowThisWorks() {
                 <img
                   src={s.img}
                   alt={s.title}
-                  className="w-130 h-auto object-contain rounded-lg"
+                  className="w-full max-w-130 h-auto object-contain rounded-lg"
                 />
 
                 <div className="relative w-full mt-4">
