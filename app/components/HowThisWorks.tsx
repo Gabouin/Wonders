@@ -16,7 +16,7 @@ export function HowThisWorks() {
       img: "/step-1.png",
       border: "/text-border.png",
       color: "red",
-      title: "Get the most stupid, cursed idea YOU can think of",
+      title: "Find the wonder that could only come from you",
       desc: "Make it!!!! don't care how many hours you farm, HOURS do not MATTER here",
     },
     {
