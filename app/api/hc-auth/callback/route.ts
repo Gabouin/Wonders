@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
 
   if (!code || !state || !expectedState || state !== expectedState) {
     return NextResponse.redirect(
-      new URL("/dashboard?error=state", request.url),
+      new URL("/login?error=state", request.url),
     );
   }
 
@@ -47,14 +47,14 @@ export async function GET(request: NextRequest) {
 
   if (!tokenRes.ok) {
     return NextResponse.redirect(
-      new URL("/dashboard?error=token", request.url),
+      new URL("/login?error=token", request.url),
     );
   }
 
   const tokenData = (await tokenRes.json()) as { access_token?: string };
   if (!tokenData.access_token) {
     return NextResponse.redirect(
-      new URL("/dashboard?error=token", request.url),
+      new URL("/login?error=token", request.url),
     );
   }
 
@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
 
   if (!meRes.ok) {
     return NextResponse.redirect(
-      new URL("/dashboard?error=profile", request.url),
+      new URL("/login?error=profile", request.url),
     );
   }
 
@@ -77,20 +77,20 @@ export async function GET(request: NextRequest) {
 
   if (!email) {
     return NextResponse.redirect(
-      new URL("/dashboard?error=profile", request.url),
+      new URL("/login?error=profile", request.url),
     );
   }
 
   if (!isEmailAllowed(email)) {
     const response = NextResponse.redirect(
-      new URL("/dashboard?denied=1", request.url),
+      new URL("/login?denied=1", request.url),
     );
     response.cookies.delete(STATE_COOKIE);
     return response;
   }
 
   const session = createSessionCookie({ email, name, slackId });
-  const response = NextResponse.redirect(new URL("/dash", request.url));
+  const response = NextResponse.redirect(new URL("/dashboard", request.url));
   response.cookies.set(SESSION_COOKIE, session.value, {
     httpOnly: true,
     secure: true,
