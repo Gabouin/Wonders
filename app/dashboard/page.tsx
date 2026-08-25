@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { cookies } from "next/headers";
 import { SESSION_COOKIE, verifySessionCookie } from "@/lib/hc-auth";
 
@@ -13,9 +14,7 @@ export default async function DashPage({
   if (!session) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
-        <h1 className="font-poppins text-2xl font-bold text-black">
-          Player Dashboard
-        </h1>
+        <img src="/logo.png" alt="hi, welcome" className="w-120 h-auto" />
         {denied && (
           <p className="max-w-sm font-poppins text-sm text-red-600">
             That Hack Club account isn&apos;t allowed in here yet.
@@ -26,30 +25,23 @@ export default async function DashPage({
             Something went wrong signing you in ({error}). Try again.
           </p>
         )}
-        <a
-          href="/api/hc-auth/login"
-          className="rounded-lg bg-black px-6 py-3 font-poppins font-medium text-white transition-opacity hover:opacity-80"
-        >
-          Sign in with Hack Club
+        <a href="/api/hc-auth/login" className="group">
+          <img
+            src="/login-with-hc.png"
+            alt="login with hc"
+            className="w-90 h-auto group-hover:w-95 transition-all"
+          />
         </a>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4 px-6 text-center">
-      <h1 className="font-poppins text-2xl font-bold break-words text-black">
-        Welcome, {session.name || session.email}
+    <div className="flex min-h-screen w-full flex-col pt-10">
+      <img src="/hi-welcome.png" alt="hi, welcome" className="w-120 h-auto" />
+      <h1 className="font-finger-paint text-5xl text-[#D9D3AF]">
+        {session.name || session.email}
       </h1>
-      <p className="font-poppins text-sm text-black/60">
-        Player dashboard coming soon.
-      </p>
-      <a
-        href="/api/hc-auth/logout"
-        className="font-poppins text-sm text-black/60 underline"
-      >
-        Sign out
-      </a>
     </div>
   );
 }

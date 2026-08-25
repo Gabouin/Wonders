@@ -15,7 +15,9 @@ export async function GET(request: NextRequest) {
   const expectedState = request.cookies.get(STATE_COOKIE)?.value;
 
   if (!code || !state || !expectedState || state !== expectedState) {
-    return NextResponse.redirect(new URL("/dash?error=state", request.url));
+    return NextResponse.redirect(
+      new URL("/dashboard?error=state", request.url),
+    );
   }
 
   const clientId = process.env.HC_AUTH_CLIENT_ID;
@@ -44,12 +46,16 @@ export async function GET(request: NextRequest) {
   });
 
   if (!tokenRes.ok) {
-    return NextResponse.redirect(new URL("/dash?error=token", request.url));
+    return NextResponse.redirect(
+      new URL("/dashboard?error=token", request.url),
+    );
   }
 
   const tokenData = (await tokenRes.json()) as { access_token?: string };
   if (!tokenData.access_token) {
-    return NextResponse.redirect(new URL("/dash?error=token", request.url));
+    return NextResponse.redirect(
+      new URL("/dashboard?error=token", request.url),
+    );
   }
 
   const meRes = await fetch(HC_AUTH_ME_URL, {
@@ -57,7 +63,9 @@ export async function GET(request: NextRequest) {
   });
 
   if (!meRes.ok) {
-    return NextResponse.redirect(new URL("/dash?error=profile", request.url));
+    return NextResponse.redirect(
+      new URL("/dashboard?error=profile", request.url),
+    );
   }
 
   const meData = (await meRes.json()) as {
@@ -68,12 +76,14 @@ export async function GET(request: NextRequest) {
   const slackId = meData.identity?.slack_id ?? "";
 
   if (!email) {
-    return NextResponse.redirect(new URL("/dash?error=profile", request.url));
+    return NextResponse.redirect(
+      new URL("/dashboard?error=profile", request.url),
+    );
   }
 
   if (!isEmailAllowed(email)) {
     const response = NextResponse.redirect(
-      new URL("/dash?denied=1", request.url),
+      new URL("/dashboard?denied=1", request.url),
     );
     response.cookies.delete(STATE_COOKIE);
     return response;
