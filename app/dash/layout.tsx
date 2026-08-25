@@ -11,7 +11,7 @@ export default function DashLayout({
     <div className="relative flex min-h-screen">
       <img
         className="fixed inset-0 -z-10 h-full w-full object-cover"
-        src={"/bg-effect-2.png"}
+        src={"/bg-effect-4.png"}
         alt=""
       />
       <div className="relative sticky top-0 hidden h-screen shrink-0 md:block">
