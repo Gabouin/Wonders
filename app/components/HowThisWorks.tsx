@@ -30,7 +30,7 @@ export function HowThisWorks() {
       img: "/step-3.png",
       border: "/text-border-3.png",
       color: "blue",
-      title: "Get your beautiful reviewer feedback",
+      title: "Get your wonderful reviewer feedback",
       desc: "and wait for your wonderful surprise :3",
     },
   ];

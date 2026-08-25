@@ -24,9 +24,8 @@ function Sentence({
   const words = text.split(" ");
   const duration = segEnd - segStart;
 
-  // words now take up 70% of the segment to build in (was 40%)
   const buildEnd = segStart + duration * 0.7;
-  // hold briefly, then exit
+
   const holdEnd = segStart + duration * 0.9;
 
   const lineX = useTransform(scrollYProgress, [holdEnd, segEnd], [0, -150]);
@@ -53,7 +52,7 @@ function Sentence({
           <motion.span
             key={i}
             style={{ opacity, x }}
-            className="text-2xl md:text-4xl font-poppins text-black font-medium whitespace-nowrap"
+            className="text-2xl md:text-4xl font-poppins text-[#80BF8D] font-medium whitespace-nowrap"
           >
             {word}
           </motion.span>
@@ -74,9 +73,8 @@ export function Story() {
   const segments = SENTENCES.length;
 
   return (
-    // was h-[400vh] — more scroll distance = slower reveal per word
     <div ref={containerRef} className="relative w-full h-[700vh]">
-      <div className="sticky top-0 w-full min-h-[115vh] bg-white overflow-hidden">
+      <div className="sticky top-0 w-full min-h-screen bg-white overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ backgroundImage: "url('/bg-effect-2.png')" }}
@@ -85,17 +83,10 @@ export function Story() {
           className="absolute inset-0 bg-cover bg-center z-10"
           style={{ backgroundImage: "url('/bg-part-2.png')" }}
         />
-        <div
+        {/* <div
           className="absolute inset-0 bg-cover bg-center z-10"
           style={{ backgroundImage: "url('/bg-part-3.png')" }}
-        />
-        <div
-          className="absolute inset-0 opacity-100 transition-opacity duration-500 rounded-3xl sm:rounded-4xl pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 90% 50% at 100% 5%, #ffe600 0%, #fecc1f 30%, #fef9c3 70%, transparent 100%)",
-          }}
-        />
+        /> */}
 
         <div className="relative z-20 flex items-center justify-center min-h-[115vh] overflow-hidden">
           {SENTENCES.map((text, i) => (
