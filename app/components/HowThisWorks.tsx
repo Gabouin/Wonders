@@ -62,11 +62,11 @@ export function HowThisWorks() {
       />
 
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen pt-35">
-        <div className="pt-30">
+        <div className="pt-35">
           <img
             src="/how-this-works.png"
             alt="How this works!"
-            className="h-auto w-150 object-contain"
+            className="h-auto w-200 object-contain"
           />
         </div>
 
