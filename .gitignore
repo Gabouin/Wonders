@@ -43,3 +43,5 @@ next-env.d.ts
 *.kra*
 
 *.png~
+
+!.env.example
