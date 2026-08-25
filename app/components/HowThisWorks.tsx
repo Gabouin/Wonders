@@ -56,21 +56,21 @@ export function HowThisWorks() {
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: "url('/bg-effect-2.png')" }}
       />
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center z-10"
-        style={{ backgroundImage: "url('/bg-part-2.png')" }}
-      />
+        style={{ backgroundImage: "url('/bg-part-4.png')" }}
+      /> */}
 
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen pt-35">
-        <div className="pt-35">
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen">
+        <div className="pt-20">
           <img
             src="/how-this-works.png"
             alt="How this works!"
-            className="h-auto w-200 object-contain"
+            className="h-auto w-150 object-contain"
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-10 px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full px-8">
           {steps.map((s, i) => {
             const t = theme[s.color];
             return (
