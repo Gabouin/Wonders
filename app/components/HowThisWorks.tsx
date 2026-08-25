@@ -62,10 +62,12 @@ export function HowThisWorks() {
       />
 
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen pt-35">
-        <div className="text-black pt-10">
-          <p className="text-4xl font-poppins text-[#4EA15F] font-medium pt-10">
-            How this works!
-          </p>
+        <div className="pt-30">
+          <img
+            src="/how-this-works.png"
+            alt="How this works!"
+            className="h-auto w-150 object-contain"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-10 px-8">
