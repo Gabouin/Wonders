@@ -38,15 +38,15 @@ export default async function ProjectsPage() {
         <h1 className="font-finger-paint text-4xl text-[#BFD8A8]">
           Your Wonders
         </h1>
-        <div className="mt-8 flex flex-col items-start gap-8">
+        <div className="mt-8 flex flex-col items-start gap-3">
           {projects.map((project) => (
             <ProjectCardWide
               key={project.id}
               project={project}
-              className="w-full max-w-4xl"
+              className="w-full max-w-6xl"
             />
           ))}
-          <AddProjectCardWide className="w-full max-w-4xl" />
+          <AddProjectCardWide className="w-full max-w-6xl" redirectTo="/wonders" />
         </div>
       </main>
     </div>

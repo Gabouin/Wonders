@@ -2,12 +2,14 @@ import Link from "next/link";
 
 export default function AddProjectCardWide({
   className = "w-full max-w-4xl",
+  redirectTo = "/dashboard",
 }: {
   className?: string;
+  redirectTo?: string;
 } = {}) {
   return (
     <Link
-      href="/dashboard/projects/new"
+      href={`/dashboard/projects/new?redirect_to=${encodeURIComponent(redirectTo)}`}
       className={`group relative block aspect-1327/345 overflow-hidden ${className}`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}

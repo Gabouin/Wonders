@@ -53,3 +53,51 @@ export async function createProject(
   }
   return project;
 }
+
+export async function getProject(id: string): Promise<Project | null> {
+  const { data, error } = await supabase
+    .from("projects")
+    .select(
+      "id, profile_id, title, description, image_url, link_url, status, reviewer_note, reward, created_at",
+    )
+    .eq("id", id)
+    .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+  return data;
+}
+
+export async function updateProject(
+  id: string,
+  profileId: string,
+  data: { title: string; description: string; link_url?: string },
+) {
+  const { error } = await supabase
+    .from("projects")
+    .update({
+      title: data.title,
+      description: data.description,
+      link_url: data.link_url || null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("id", id)
+    .eq("profile_id", profileId);
+
+  if (error) {
+    throw error;
+  }
+}
+
+export async function deleteProject(id: string, profileId: string) {
+  const { error } = await supabase
+    .from("projects")
+    .delete()
+    .eq("id", id)
+    .eq("profile_id", profileId);
+
+  if (error) {
+    throw error;
+  }
+}

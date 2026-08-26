@@ -1,10 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-export default function AddProjectCard({ size = "w-90 h-90" }: { size?: string } = {}) {
+export default function AddProjectCard({
+  size = "w-90 h-90",
+  redirectTo = "/dashboard",
+}: {
+  size?: string;
+  redirectTo?: string;
+} = {}) {
   return (
     <Link
-      href="/dashboard/projects/new"
+      href={`/dashboard/projects/new?redirect_to=${encodeURIComponent(redirectTo)}`}
       className={`group relative block ${size}`}
     >
       <img
