@@ -44,7 +44,7 @@ export default async function DashPage() {
           </Link>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.slice(0, 3).map((project) => (
+          {projects.slice(0, 2).map((project) => (
             <ProjectCard
               key={project.id}
               project={project}

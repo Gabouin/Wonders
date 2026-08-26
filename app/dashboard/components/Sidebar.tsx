@@ -30,11 +30,9 @@ export default function Sidebar() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="open menu"
-        className="fixed top-4 left-4 z-40 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full bg-[#3B82C4] shadow-lg md:hidden"
+        className="fixed top-4 left-4 z-40 h-11 w-11 md:hidden"
       >
-        <span className="h-0.5 w-6 rounded-full bg-white" />
-        <span className="h-0.5 w-6 rounded-full bg-white" />
-        <span className="h-0.5 w-6 rounded-full bg-white" />
+        <img src="/hamburger.png" alt="" className="h-full w-full" />
       </button>
 
       <AnimatePresence>
@@ -60,9 +58,9 @@ export default function Sidebar() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="close menu"
-                className="absolute top-6 right-6 font-finger-paint text-2xl text-white"
+                className="absolute top-6 right-6 h-14 w-14"
               >
-                x
+                <img src="/close.png" alt="" className="h-full w-full" />
               </button>
             </motion.div>
           </motion.div>
