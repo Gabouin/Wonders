@@ -71,11 +71,3 @@ export function verifySessionCookie(
     return null;
   }
 }
-
-export function isEmailAllowed(email: string) {
-  const allowlist = (process.env.ALLOWED_EMAILS ?? "")
-    .split(",")
-    .map((e) => e.trim().toLowerCase())
-    .filter(Boolean);
-  return allowlist.includes(email.trim().toLowerCase());
-}

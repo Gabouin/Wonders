@@ -5,7 +5,6 @@ import {
   STATE_COOKIE,
   SESSION_COOKIE,
   createSessionCookie,
-  isEmailAllowed,
 } from "@/lib/hc-auth";
 
 export async function GET(request: NextRequest) {
@@ -79,14 +78,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(
       new URL("/login?error=profile", request.url),
     );
-  }
-
-  if (!isEmailAllowed(email)) {
-    const response = NextResponse.redirect(
-      new URL("/login?denied=1", request.url),
-    );
-    response.cookies.delete(STATE_COOKIE);
-    return response;
   }
 
   const session = createSessionCookie({ email, name, slackId });
