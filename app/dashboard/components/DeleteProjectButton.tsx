@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function DeleteProjectButton({
@@ -12,6 +13,8 @@ export default function DeleteProjectButton({
   className?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [pending, startTransition] = useTransition();
+  const router = useRouter();
 
   useEffect(() => {
     if (!open) return;
@@ -23,6 +26,14 @@ export default function DeleteProjectButton({
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
+
+  function handleConfirm() {
+    startTransition(async () => {
+      await action();
+      router.refresh();
+      setOpen(false);
+    });
+  }
 
   return (
     <>
@@ -57,18 +68,19 @@ export default function DeleteProjectButton({
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="rounded-lg bg-[#D0E4B4] px-4 py-2 font-finger-paint text-black/60 transition hover:scale-105"
+                    disabled={pending}
+                    className="rounded-lg bg-[#D0E4B4] px-4 py-2 font-finger-paint text-black/60 transition hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
                   >
                     nevermind :3
                   </button>
-                  <form action={action}>
-                    <button
-                      type="submit"
-                      className="rounded-lg bg-[#F2B3AD] px-4 py-2 font-finger-paint text-black/60 transition hover:scale-105"
-                    >
-                      delete it :(
-                    </button>
-                  </form>
+                  <button
+                    type="button"
+                    onClick={handleConfirm}
+                    disabled={pending}
+                    className="rounded-lg bg-[#F2B3AD] px-4 py-2 font-finger-paint text-black/60 transition hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+                  >
+                    {pending ? "deleting... :(" : "delete it :("}
+                  </button>
                 </div>
               </div>
             </motion.div>
