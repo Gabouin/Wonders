@@ -17,6 +17,9 @@ export default async function DashPage() {
       <h1 className="font-finger-paint text-5xl text-[#D9D3AF]">
         {session.name || session.email}
       </h1>
+      <div className="pt-10 w-full flex flex-col gap-5">
+        <h1 className="text-[#BFD8A8] font-finger-paint text-4xl">Projects</h1>
+      </div>
     </div>
   );
 }

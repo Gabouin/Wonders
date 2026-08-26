@@ -22,7 +22,7 @@ export default function SidebarNav() {
             alt=""
             className="h-auto w-80 group-hover:w-85 transition-all"
           />
-          <span className="absolute inset-0 flex items-center justify-center font-finger-paint text-3xl tracking-wide text-black">
+          <span className="absolute inset-0 flex items-center justify-center font-finger-paint text-3xl tracking-wide text-[#16213E]">
             {link.label}
           </span>
         </Link>
