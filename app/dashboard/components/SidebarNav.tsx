@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 
 import Link from "next/link";
 
@@ -8,13 +9,18 @@ const links = [
   { href: "/explore", label: "Explore :3", src: "/button-template-3.png" },
 ];
 
-export default function SidebarNav() {
+export default function SidebarNav({
+  onNavigateAction,
+}: {
+  onNavigateAction?: () => void;
+} = {}) {
   return (
     <nav className="absolute inset-0 flex flex-col gap-4 pt-32">
       {links.map((link) => (
         <Link
           key={link.href}
           href={link.href}
+          onClick={onNavigateAction}
           className="relative block self-start group"
         >
           <img
@@ -29,6 +35,7 @@ export default function SidebarNav() {
       ))}
       <a
         href="/api/hc-auth/logout"
+        onClick={onNavigateAction}
         className="relative mt-auto block self-start group"
       >
         <img

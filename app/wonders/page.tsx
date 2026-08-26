@@ -4,7 +4,9 @@ import { cookies } from "next/headers";
 import { SESSION_COOKIE, verifySessionCookie } from "@/lib/hc-auth";
 import { getProfile } from "@/lib/profiles";
 import { getProjects } from "@/lib/projects";
-import SidebarNav from "@/app/dashboard/components/SidebarNav";
+import Sidebar from "@/app/dashboard/components/Sidebar";
+import ProjectCard from "@/app/dashboard/components/ProjectCard";
+import AddProjectCard from "@/app/dashboard/components/AddProjectCard";
 import ProjectCardWide from "@/app/dashboard/components/ProjectCardWide";
 import AddProjectCardWide from "@/app/dashboard/components/AddProjectCardWide";
 
@@ -30,15 +32,26 @@ export default async function ProjectsPage() {
         src="/bg-effect-4.png"
         alt=""
       />
-      <div className="relative sticky top-0 hidden h-screen shrink-0 md:block">
-        <img className="h-full w-auto" src="/sidebar.png" alt="" />
-        <SidebarNav />
-      </div>
-      <main className="relative min-w-0 flex-1 px-10 pt-10">
+      <Sidebar />
+      <main className="relative min-w-0 flex-1 px-6 pt-20 md:px-10 md:pt-10">
         <h1 className="font-finger-paint text-4xl text-[#BFD8A8]">
           Your Wonders
         </h1>
-        <div className="mt-8 flex flex-col items-start gap-3">
+
+        {/* mobile: square card grid */}
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:hidden">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              size="aspect-square w-full"
+            />
+          ))}
+          <AddProjectCard size="aspect-square w-full" redirectTo="/wonders" />
+        </div>
+
+        {/* desktop: wide banner list */}
+        <div className="mt-8 hidden flex-col items-start gap-3 md:flex">
           {projects.map((project) => (
             <ProjectCardWide
               key={project.id}

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { SESSION_COOKIE, verifySessionCookie } from "@/lib/hc-auth";
 import { getProfile } from "@/lib/profiles";
-import SidebarNav from "./components/SidebarNav";
+import Sidebar from "./components/Sidebar";
 
 export default async function DashLayout({
   children,
@@ -30,10 +30,7 @@ export default async function DashLayout({
         src={"/bg-effect-4.png"}
         alt=""
       />
-      <div className="relative sticky top-0 hidden h-screen shrink-0 md:block">
-        <img className="h-full w-auto" src={"/sidebar.png"} alt="" />
-        <SidebarNav />
-      </div>
+      <Sidebar />
       <main className="relative min-w-0 flex-1">{children}</main>
     </div>
   );
