@@ -23,7 +23,7 @@ export async function getProjects(profileId: string): Promise<Project[]> {
       "id, profile_id, title, description, image_url, link_url, status, reviewer_note, reward, created_at",
     )
     .eq("profile_id", profileId)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: true });
 
   if (error) {
     throw error;
