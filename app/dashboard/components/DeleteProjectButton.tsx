@@ -8,9 +8,11 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function DeleteProjectButton({
   action,
   className,
+  label = "Delete :(",
 }: {
   action: () => Promise<void>;
   className?: string;
+  label?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [pending, startTransition] = useTransition();
@@ -38,7 +40,7 @@ export default function DeleteProjectButton({
   return (
     <>
       <button type="button" onClick={() => setOpen(true)} className={className}>
-        Delete :(
+        {label}
       </button>
       <AnimatePresence>
         {open && (

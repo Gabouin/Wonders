@@ -10,6 +10,7 @@ export interface Project {
   description: string;
   image_url: string | null;
   link_url: string | null;
+  github_url: string | null;
   status: ProjectStatus;
   reviewer_note: string | null;
   reward: string | null;
@@ -20,7 +21,7 @@ export async function getProjects(profileId: string): Promise<Project[]> {
   const { data, error } = await supabase
     .from("projects")
     .select(
-      "id, profile_id, title, description, image_url, link_url, status, reviewer_note, reward, created_at",
+      "id, profile_id, title, description, image_url, link_url, github_url, status, reviewer_note, reward, created_at",
     )
     .eq("profile_id", profileId)
     .order("created_at", { ascending: true });
@@ -33,7 +34,12 @@ export async function getProjects(profileId: string): Promise<Project[]> {
 
 export async function createProject(
   profileId: string,
-  data: { title: string; description: string; link_url?: string },
+  data: {
+    title: string;
+    description: string;
+    link_url?: string;
+    github_url?: string;
+  },
 ): Promise<Project> {
   const { data: project, error } = await supabase
     .from("projects")
@@ -42,9 +48,10 @@ export async function createProject(
       title: data.title,
       description: data.description,
       link_url: data.link_url || null,
+      github_url: data.github_url || null,
     })
     .select(
-      "id, profile_id, title, description, image_url, link_url, status, reviewer_note, reward, created_at",
+      "id, profile_id, title, description, image_url, link_url, github_url, status, reviewer_note, reward, created_at",
     )
     .single();
 
@@ -58,7 +65,7 @@ export async function getProject(id: string): Promise<Project | null> {
   const { data, error } = await supabase
     .from("projects")
     .select(
-      "id, profile_id, title, description, image_url, link_url, status, reviewer_note, reward, created_at",
+      "id, profile_id, title, description, image_url, link_url, github_url, status, reviewer_note, reward, created_at",
     )
     .eq("id", id)
     .maybeSingle();
@@ -72,7 +79,12 @@ export async function getProject(id: string): Promise<Project | null> {
 export async function updateProject(
   id: string,
   profileId: string,
-  data: { title: string; description: string; link_url?: string },
+  data: {
+    title: string;
+    description: string;
+    link_url?: string;
+    github_url?: string;
+  },
 ) {
   const { error } = await supabase
     .from("projects")
@@ -80,6 +92,7 @@ export async function updateProject(
       title: data.title,
       description: data.description,
       link_url: data.link_url || null,
+      github_url: data.github_url || null,
       updated_at: new Date().toISOString(),
     })
     .eq("id", id)

@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import type { Project } from "@/lib/projects";
 
 const STATUS_LABEL: Record<Project["status"], string> = {
@@ -16,7 +17,10 @@ export default function ProjectCard({
   size?: string;
 }) {
   return (
-    <div className={`relative ${size}`}>
+    <Link
+      href={`/dashboard/projects/edit/${project.id}`}
+      className={`relative block ${size}`}
+    >
       <img
         src="/project-template-base-with-inputs.png"
         alt=""
@@ -38,6 +42,6 @@ export default function ProjectCard({
       <span className="absolute bottom-[5%] right-[9%] font-finger-paint text-[10px] text-[#7A6B4A]">
         {STATUS_LABEL[project.status]}
       </span>
-    </div>
+    </Link>
   );
 }
