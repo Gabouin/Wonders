@@ -16,7 +16,7 @@ export default function AddProjectCard({
       <img
         src="/new-project-template.png"
         alt="add a new project"
-        className="h-full w-full transition-transform group-hover:scale-105"
+        className="h-full w-full transition-transform group-hover:zoom-110"
       />
     </Link>
   );
