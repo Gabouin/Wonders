@@ -18,7 +18,7 @@ Wonders is a Next.js app with two halves:
 
 - **A dashboard** where you sign in with your Hack Club account, tell us what you're into, and post your projects. Each project gets a status, a spot for your reviewer's note, and room for whatever *surprise* comes back.
 
-![Landing page](docs/screenshots/landing.png)
+<img src="docs/screenshots/landing.png" alt="landing" width=100%>
 
 ---
 
