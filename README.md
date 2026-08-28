@@ -1,4 +1,4 @@
-# Wonders
+
 
 <p align="center">
   <img src="docs/screenshots/logo.png" alt="Wonders" width="360" />
