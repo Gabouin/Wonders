@@ -18,7 +18,7 @@ Wonders is a Next.js app with two halves:
 
 - **A dashboard** where you sign in with your Hack Club account, tell us what you're into, and post your projects. Each project gets a status, a spot for your reviewer's note, and room for whatever *surprise* comes back.
 
-<img src="docs/screenshots/landing.png" alt="landing" width=100%>
+![landing](docs/screenshots/landing.png)
 
 ---
 
@@ -38,6 +38,8 @@ So there's no hour counter anywhere in this codebase. On purpose.
 
 ---
 
+![How this works](docs/screenshots/how-it-works.png)
+
 ## How it works for someone using it
 
 ### 1. Find the wonder that could only come from you
@@ -52,8 +54,6 @@ Push your repo, put up a demo, and drop both links into the dashboard. Then your
 
 A person reads what you made, plays with the demo, and writes back. Then you wait for a surprise.
 
-![How this works](docs/screenshots/how-it-works.png)
-
 ---
 
 ## The dashboard
@@ -64,11 +64,9 @@ Signing in runs through Hack Club's OAuth, so there is no password for Wonders i
 
 First time through, we ask one question: what interests you the most. Hobbies, obsessions, weird niches, whatever. This is not a random survey to collect your data and sell them. It is so a reviewer can look at your project and your interests side by side and get a feel for whether the project really looks like you.
 
-![Welcome](docs/screenshots/dashboard-welcome.png)
-
 After that you land on your dashboard. It shows your two most recent wonders and a card to add another. The sidebar gets you to the full list at `/wonders`, and to explore and log out.
 
-<img src="docs/screenshots/sidebar.png" alt="Sidebar" width="320" />
+![Dashboard](docs/screenshots/dashboard.png)
 
 Adding a wonder is four fields: a name, a description of what it is and why it feels like you, a GitHub URL, and a demo URL. All four are required, because a reviewer needs all four to do their job.
 
