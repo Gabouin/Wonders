@@ -1,6 +1,8 @@
 # Wonders
 
-<img src="docs/screenshots/logo.png" alt="Wonders" width="360" />
+<p align="center">
+  <img src="docs/screenshots/logo.png" alt="Wonders" width="360" />
+</p>
 
 Hours are a terrible way to measure a project. Some projects take a weekend and change how you think. Some projects take a month and teach you nothing. Wonders is a small web app built for a Hack Club event that throws hackatime out and asks a better question: is this thing a wonder, something that could only have come from you?
 
