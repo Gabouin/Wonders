@@ -33,12 +33,11 @@ export default async function ProjectsPage() {
         alt=""
       />
       <Sidebar />
-      <main className="relative min-w-0 flex-1 px-6 pt-20 md:px-10 md:pt-10">
+      <main className="relative min-w-0 flex-1 pr-6 pt-20 md:pr-10 md:pt-10">
         <h1 className="font-finger-paint text-4xl text-[#BFD8A8]">
           Your Wonders
         </h1>
 
-        {/* mobile: square card grid */}
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:hidden">
           {projects.map((project) => (
             <ProjectCard
@@ -50,7 +49,6 @@ export default async function ProjectsPage() {
           <AddProjectCard size="aspect-square w-full" redirectTo="/wonders" />
         </div>
 
-        {/* desktop: wide banner list */}
         <div className="mt-8 hidden flex-col items-start gap-3 md:flex">
           {projects.map((project) => (
             <ProjectCardWide
@@ -59,7 +57,10 @@ export default async function ProjectsPage() {
               className="w-full max-w-6xl"
             />
           ))}
-          <AddProjectCardWide className="w-full max-w-6xl" redirectTo="/wonders" />
+          <AddProjectCardWide
+            className="w-full max-w-6xl"
+            redirectTo="/wonders"
+          />
         </div>
       </main>
     </div>

@@ -52,7 +52,7 @@ function Sentence({
           <motion.span
             key={i}
             style={{ opacity, x }}
-            className="text-2xl md:text-4xl font-poppins text-[#80BF8D] font-medium whitespace-nowrap"
+            className="text-2xl md:text-4xl font-finger-paint text-[#80BF8D] font-medium whitespace-nowrap"
           >
             {word}
           </motion.span>
