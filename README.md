@@ -4,29 +4,41 @@
   <img src="docs/screenshots/logo.png" alt="Wonders" width="360" />
 </p>
 
-Hours are a terrible way to measure a project. Some projects take a weekend and change how you think. Some projects take a month and teach you nothing. Wonders is a small web app built for a Hack Club event that throws hackatime out and asks a better question: is this thing a wonder, something that could only have come from you?
+<h1 align="center">Wonders</h1>
 
-You make something. You ship it. A real wonderful human reviews it and gives you real opinions and detailled advices. 
+<p align="center">
+  <strong>Hours are a terrible way to measure a project.</strong> Some projects take a weekend and change how you think. Some projects take a month and teach you nothing. Wonders is a small web app built for a Hack Club event that throws hackatime out and asks a better question: is this thing a wonder, something that could only have come from you?
+</p>
+
+<p align="center">
+  <strong>You make something. You ship it.</strong> A real wonderful human reviews it and gives you real opinions and detailled advices.
+</p>
 
 ---
 
-## What this is
+<h2 align="center">What this is</h2>
 
-Wonders is a Next.js app with two halves:
+<p align="center">Wonders is a Next.js app with two halves:</p>
 
-- **A landing page** that tells the story. You scroll, the words assemble themselves, and there's crazy illustrations made by me behind everything.
+<p align="center">
+  <strong>A landing page</strong> that tells the story. You scroll, the words assemble themselves, and there's crazy illustrations made by me behind everything.
+</p>
 
-- **A dashboard** where you sign in with your Hack Club account, tell us what you're into, and post your projects. Each project gets a status, a spot for your reviewer's note, and room for whatever *surprise* comes back.
+<p align="center">
+  <strong>A dashboard</strong> where you sign in with your Hack Club account, tell us what you're into, and post your projects. Each project gets a status, a spot for your reviewer's note, and room for whatever <em>surprise</em> comes back.
+</p>
 
 ![landing](docs/screenshots/landing.png)
 
 ---
 
-## The idea behind it
+<h2 align="center">The idea behind it</h2>
 
-Hack Club runs a lot of events where you log hours and **trade them for prizes**. That works, but it also nudges people toward calculating how much they gonna get instead of caring about the thing they're building. Wonders is a small pushback against that.
+<p align="center">
+  Hack Club runs a lot of events where you log hours and <strong>trade them for prizes</strong>. That works, but it also nudges people toward calculating how much they gonna get instead of caring about the thing they're building. Wonders is a small pushback against that.
+</p>
 
-Three lines sum it up, and they're literally the copy that animates in on the homepage:
+<p align="center">Three lines sum it up, and they're literally the copy that animates in on the homepage:</p>
 
 > Every project tells a story, they shouldn't be judged by hours.
 >
@@ -34,44 +46,43 @@ Three lines sum it up, and they're literally the copy that animates in on the ho
 >
 > Where every project is a wonder and not a way to farm hours!!
 
-So there's no hour counter anywhere in this codebase. On purpose.
+<p align="center"><strong>So there's no hour counter anywhere in this codebase. On purpose.</strong></p>
 
 ---
 
 ![How this works](docs/screenshots/how-it-works.png)
 
-## How it works for someone using it
+<h2 align="center">How it works for someone using it</h2>
 
-### 1. Find the wonder that could only come from you
+<h3 align="center">1. Find the wonder that could only come from you</h3>
 
-Build the thing. Nobody is counting how long it took. Hours do not matter here, and that is not a slogan, it is just how the app is designed.
+<p align="center">Build the thing. Nobody is counting how long it took. <strong>Hours do not matter here</strong>, and that is not a slogan, it is just how the app is designed.</p>
 
-### 2. Ship it
+<h3 align="center">2. Ship it</h3>
 
-Push your repo, put up a demo, and drop both links into the dashboard. Then your project sits in the queue and waits for a cool reviewer.
+<p align="center">Push your repo, put up a demo, and drop both links into the dashboard. Then your project sits in the queue and waits for a cool reviewer.</p>
 
-### 3. Get your reviewer's feedback
+<h3 align="center">3. Get your reviewer's feedback</h3>
 
-A person reads what you made, plays with the demo, and writes back. Then you wait for a surprise.
+<p align="center">A person reads what you made, plays with the demo, and writes back. Then you wait for a <strong>surprise</strong>.</p>
 
 ---
 
-## The dashboard
+<h2 align="center">The dashboard</h2>
 
-Signing in runs through Hack Club's OAuth, so there is no password for Wonders itself and no account to create. If your Hack Club account is on the allowlist, you are in.
+<p align="center">Signing in runs through Hack Club's OAuth, so there is no password for Wonders itself and no account to create. If your Hack Club account is on the allowlist, you are in.</p>
 
 ![Login](docs/screenshots/login.png)
 
-First time through, we ask one question: what interests you the most. Hobbies, obsessions, weird niches, whatever. This is not a random survey to collect your data and sell them. It is so a reviewer can look at your project and your interests side by side and get a feel for whether the project really looks like you.
+<p align="center">First time through, we ask one question: what interests you the most. Hobbies, obsessions, weird niches, whatever. This is not a random survey to collect your data and sell them. It is so a reviewer can look at your project and your interests side by side and get a feel for whether the project really looks like you.</p>
 
-After that you land on your dashboard. It shows your two most recent wonders and a card to add another. The sidebar gets you to the full list at `/wonders`, and to explore and log out.
-Adding a wonder is four fields: a name, a description of what it is and why it feels like you, a GitHub URL, and a demo URL. All four are required, because a reviewer needs all four to do their job.
+<p align="center">After that you land on your dashboard. It shows your two most recent wonders and a card to add another. The sidebar gets you to the full list at <code>/wonders</code>, and to explore and log out.</p>
 
+<p align="center">Adding a wonder is four fields: a name, a description of what it is and why it feels like you, a GitHub URL, and a demo URL. All four are required, because a reviewer needs all four to do their job.</p>
 
 ![Dashboard](docs/screenshots/dashboard.png)
 
-
-Every project carries a status as it moves through the loop:
+<p align="center">Every project carries a status as it moves through the loop:</p>
 
 | Status | What it means |
 | --- | --- |
@@ -80,7 +91,7 @@ Every project carries a status as it moves through the loop:
 | `in review :3` | a reviewer has it |
 | `reviewed :3c` | feedback is back, check the note |
 
-Projects also have a slot for the reviewer's note and one for a reward, both filled in on the reviewer's side.
+<p align="center">Projects also have a slot for the reviewer's note and one for a reward, both filled in on the reviewer's side.</p>
 
 ![The world at the end of the page](docs/screenshots/footer.png)
 
