@@ -65,12 +65,11 @@ Signing in runs through Hack Club's OAuth, so there is no password for Wonders i
 First time through, we ask one question: what interests you the most. Hobbies, obsessions, weird niches, whatever. This is not a random survey to collect your data and sell them. It is so a reviewer can look at your project and your interests side by side and get a feel for whether the project really looks like you.
 
 After that you land on your dashboard. It shows your two most recent wonders and a card to add another. The sidebar gets you to the full list at `/wonders`, and to explore and log out.
+Adding a wonder is four fields: a name, a description of what it is and why it feels like you, a GitHub URL, and a demo URL. All four are required, because a reviewer needs all four to do their job.
+
 
 ![Dashboard](docs/screenshots/dashboard.png)
 
-Adding a wonder is four fields: a name, a description of what it is and why it feels like you, a GitHub URL, and a demo URL. All four are required, because a reviewer needs all four to do their job.
-
-![Create a wonder](docs/screenshots/create-wonder.png)
 
 Every project carries a status as it moves through the loop:
 
